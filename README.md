@@ -3,30 +3,28 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Unity 2021.3+](https://img.shields.io/badge/Unity-2021.3%2B-blue.svg)](https://unity.com/)
 
-**Real-time biosignal streaming from OpenBCI hardware to Unity via BrainFlow.**
+A Unity plugin that streams real-time biosignal data from OpenBCI hardware via BrainFlow. Use EMG, EEG, and pressure signals as input for games and XR applications.
 
-Control your Unity/XR experiences with EMG (muscle), EEG (brain), and FSR (pressure) signals.
-
-## 🎯 What This Does
+## What This Does
 
 ```
 [OpenBCI Hardware] → [BrainFlow] → [Unity Plugin] → [Your Game/XR App]
 ```
 
-Instead of keyboard/controller input, use your body:
-- **Flex muscle** → move object, trigger action
-- **Brain signals** → detect mental states
-- **Pressure sensors** → measure force precision
+Instead of keyboard or controller input, you can use your body:
+- Muscle activation (EMG) to move objects or trigger events
+- Brain signals (EEG) to detect mental states
+- Pressure sensors (FSR) to measure force and precision
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
-1. **Install BrainFlow** in your Unity project:
+1. Install BrainFlow in your Unity project:
    - Download BrainFlow C# bindings from [brainflow.org](https://brainflow.org)
    - Add the DLLs to your `Assets/Plugins` folder
 
-2. **Add this package** via Unity Package Manager:
+2. Add this package via Unity Package Manager:
    - Window → Package Manager → + → Add package from git URL
    - Enter: `https://github.com/anaya33/Unity-Plugin-Biosignals.git`
 
@@ -41,20 +39,20 @@ public class MyController : MonoBehaviour
 
     void Update()
     {
-        // Simple: is the user flexing?
+        // Check if user is flexing
         if (biosignalInput.IsFlexing)
         {
             Jump();
         }
 
-        // Continuous: get EMG value 0-1
+        // Or use the continuous EMG value (0-1)
         float emg = biosignalInput.EMGValue;
         transform.position = new Vector3(0, emg * 5f, 0);
     }
 }
 ```
 
-## 📦 Package Structure
+## Package Structure
 
 ```
 ├── Runtime/
@@ -68,7 +66,7 @@ public class MyController : MonoBehaviour
 └── Documentation~/
 ```
 
-## 🔧 Configuration
+## Configuration
 
 ### Board Setup
 
@@ -84,25 +82,25 @@ In the Inspector, configure `BrainFlowManager`:
 ### Signal Processing
 
 `SignalProcessor` handles:
-- **Normalization**: Raw values → 0-1 range
-- **Smoothing**: Reduces noise via moving average
-- **Thresholding**: Defines "active" vs "inactive"
-- **Calibration**: Auto-detect your signal range
+- **Normalization** - converts raw values to 0-1 range
+- **Smoothing** - reduces noise via moving average
+- **Thresholding** - defines when a signal counts as "active"
+- **Calibration** - auto-detects your personal signal range
 
-## 🎮 Sample: EMG Cube Control
+## Sample: EMG Cube Control
 
 Import the sample from Package Manager:
 1. Find "BrainFlow Biosignals" in Package Manager
 2. Expand "Samples"
 3. Click "Import" on "EMG Cube Control"
 
-**Result**: Flex your muscle → cube moves up. Release → cube falls.
+Flex your muscle and the cube moves up. Release and it falls back down.
 
-## 🧪 Testing Without Hardware
+## Testing Without Hardware
 
-Use the **Synthetic Board** (Board ID: -1) to test without OpenBCI hardware. It generates fake biosignal data so you can develop your integration.
+Use the Synthetic Board (Board ID: -1) to test without any OpenBCI hardware. It generates fake biosignal data so you can develop and test your integration before connecting real sensors.
 
-## 📚 API Reference
+## API Reference
 
 ### BiosignalInput
 
@@ -126,7 +124,7 @@ Use the **Synthetic Board** (Board ID: -1) to test without OpenBCI hardware. It 
 | `StopStreaming()` | Stop data stream |
 | `GetNormalizedEMG(channel)` | Get single EMG value |
 
-## 🔮 Roadmap
+## Roadmap
 
 - [ ] EEG band power extraction (alpha, beta, etc.)
 - [ ] FSR pressure mapping
@@ -134,15 +132,15 @@ Use the **Synthetic Board** (Board ID: -1) to test without OpenBCI hardware. It 
 - [ ] Unity XR Toolkit integration
 - [ ] Recording & playback
 
-## 🤝 Contributing
+## Contributing
 
-PRs welcome! This is an open-source project aimed at making biosignal-driven XR more accessible.
+Pull requests welcome. This is an open-source project aimed at making biosignal-driven XR more accessible.
 
-## 📄 License
+## License
 
 MIT License - see [LICENSE](LICENSE)
 
-## 🔗 Links
+## Links
 
 - [BrainFlow Documentation](https://brainflow.readthedocs.io/)
 - [OpenBCI](https://openbci.com/)

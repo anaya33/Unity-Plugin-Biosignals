@@ -1,0 +1,29 @@
+{
+  "name": "com.biosignals.brainflow-unity",
+  "version": "0.1.0",
+  "displayName": "BrainFlow Biosignals",
+  "description": "Real-time biosignal streaming from OpenBCI hardware to Unity via BrainFlow. Enables EMG, EEG, and FSR input for XR environments.",
+  "unity": "2021.3",
+  "documentationUrl": "https://github.com/anaya33/Unity-Plugin-Biosignals",
+  "keywords": [
+    "brainflow",
+    "biosignals",
+    "emg",
+    "eeg",
+    "openbci",
+    "xr",
+    "vr"
+  ],
+  "author": {
+    "name": "Anaya",
+    "url": "https://github.com/anaya33"
+  },
+  "license": "MIT",
+  "samples": [
+    {
+      "displayName": "EMG Cube Control",
+      "description": "Basic example: flex muscle to move a cube",
+      "path": "Samples~/EMGCubeControl"
+    }
+  ]
+}
